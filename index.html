@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Alloy — Battery health &amp; energy for macOS</title>
 <meta name="description" content="Alloy is a lightweight macOS menu-bar app that tracks your battery health and app energy use — entirely on-device, no data collected.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <style>
 :root { color-scheme: dark; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -43,7 +44,11 @@ body {
 .card {
   background: #12121a; border: 1px solid #212129; border-radius: 16px; padding: 24px;
 }
-.card .ico { font-size: 26px; margin-bottom: 12px; }
+.card .ico {
+  font-size: 20px; margin-bottom: 16px; width: 44px; height: 44px;
+  display: grid; place-items: center; border-radius: 12px;
+  background: #1a1a24; border: 1px solid #262633; color: #aeb8e0;
+}
 .card h3 { font-size: 17px; margin-bottom: 6px; letter-spacing: -0.01em; }
 .card p { color: #9c9caa; font-size: 15px; }
 
@@ -134,32 +139,32 @@ footer .fine { font-size: 13px; }
   <main class="wrap">
     <section class="grid">
       <div class="card">
-        <div class="ico">🔋</div>
+        <div class="ico"><i class="fa-solid fa-heart-pulse"></i></div>
         <h3>Battery health</h3>
         <p>Maximum capacity, cycle count, temperature and a simple health score — the numbers macOS hides.</p>
       </div>
       <div class="card">
-        <div class="ico">⚡️</div>
+        <div class="ico"><i class="fa-solid fa-bolt"></i></div>
         <h3>Energy tracking</h3>
         <p>See which apps are working your battery hardest, ranked by their real energy impact.</p>
       </div>
       <div class="card">
-        <div class="ico">📊</div>
+        <div class="ico"><i class="fa-solid fa-chart-column"></i></div>
         <h3>Weekly reports</h3>
         <p>Trends over the week, month, or 3–6 months — average score, charge, and cycles compared side by side.</p>
       </div>
       <div class="card">
-        <div class="ico">🔔</div>
+        <div class="ico"><i class="fa-solid fa-bell"></i></div>
         <h3>Smart alerts</h3>
         <p>Optional local notifications for low battery, staying at 100%, or an overheating pack.</p>
       </div>
       <div class="card">
-        <div class="ico">🧭</div>
+        <div class="ico"><i class="fa-solid fa-bars-staggered"></i></div>
         <h3>Menu-bar native</h3>
         <p>Lives quietly in the menu bar, sips power in the background, and can launch at login.</p>
       </div>
       <div class="card">
-        <div class="ico">🌍</div>
+        <div class="ico"><i class="fa-solid fa-language"></i></div>
         <h3>Speaks your language</h3>
         <p>English, Türkçe, Deutsch, Français, Español, 日本語, and 简体中文 — switch live.</p>
       </div>
