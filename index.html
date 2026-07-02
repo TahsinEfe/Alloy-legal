@@ -3,42 +3,133 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Alloy</title>
+<title>Alloy — Battery health &amp; energy for macOS</title>
+<meta name="description" content="Alloy is a lightweight macOS menu-bar app that tracks your battery health and app energy use — entirely on-device, no data collected.">
 <style>
 :root { color-scheme: dark; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
 body {
   font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background: #0b0b0f; color: #e6e6ea;
-  display: flex; align-items: center; justify-content: center;
-  min-height: 100vh; padding: 24px;
+  background: #08080c; color: #e8e8ef; -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+/* Hero */
+.hero { text-align: center; padding: 96px 24px 72px; position: relative; }
+.hero::before {
+  content: ""; position: absolute; top: 40px; left: 50%; transform: translateX(-50%);
+  width: 420px; height: 420px; max-width: 90vw;
+  background: radial-gradient(circle, rgba(120,140,255,.16), transparent 65%);
+  filter: blur(20px); z-index: 0;
+}
+.icon {
+  position: relative; z-index: 1; width: 168px; height: 168px;
+  border-radius: 38px; box-shadow: 0 30px 80px rgba(0,0,0,.6);
+}
+.hero h1 { position: relative; z-index: 1; font-size: 56px; letter-spacing: -0.03em; margin-top: 28px; }
+.hero .tag { position: relative; z-index: 1; font-size: 20px; color: #a6a6b6; margin: 12px auto 0; max-width: 540px; }
+.badges { position: relative; z-index: 1; margin-top: 24px; display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+.badge {
+  font-size: 13px; color: #c4c4d2; background: #17171f; border: 1px solid #26262f;
+  padding: 6px 12px; border-radius: 999px;
+}
+
+/* Features */
+.grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px; padding: 24px 0 8px;
 }
 .card {
-  max-width: 480px; width: 100%; text-align: center;
-  background: #15151c; border: 1px solid #24242e; border-radius: 20px;
-  padding: 48px 32px;
+  background: #12121a; border: 1px solid #212129; border-radius: 16px; padding: 24px;
 }
-h1 { font-size: 40px; letter-spacing: -0.02em; margin-bottom: 8px; }
-.tag { color: #9a9aa8; margin-bottom: 32px; }
-.links { display: flex; flex-direction: column; gap: 12px; }
-a.btn {
-  display: block; padding: 14px 20px; border-radius: 12px;
-  background: #1f1f29; border: 1px solid #2c2c38; color: #e6e6ea;
-  text-decoration: none; font-weight: 500; transition: background .15s;
+.card .ico { font-size: 26px; margin-bottom: 12px; }
+.card h3 { font-size: 17px; margin-bottom: 6px; letter-spacing: -0.01em; }
+.card p { color: #9c9caa; font-size: 15px; }
+
+/* Privacy callout */
+.privacy {
+  margin: 40px 0; text-align: center; background: #0d1a14;
+  border: 1px solid #1a3327; border-radius: 18px; padding: 36px 24px;
 }
-a.btn:hover { background: #262633; }
-footer { margin-top: 32px; color: #6a6a78; font-size: 13px; }
+.privacy h2 { font-size: 24px; letter-spacing: -0.02em; margin-bottom: 8px; }
+.privacy p { color: #a9d9bd; max-width: 520px; margin: 0 auto; }
+
+/* Footer */
+footer { text-align: center; padding: 56px 24px 72px; color: #6a6a78; }
+footer .links { display: flex; gap: 24px; justify-content: center; margin-bottom: 20px; }
+footer a { color: #8aa2ff; text-decoration: none; font-weight: 500; }
+footer a:hover { text-decoration: underline; }
+footer .fine { font-size: 13px; }
+
+@media (max-width: 520px) {
+  .hero { padding-top: 64px; }
+  .hero h1 { font-size: 44px; }
+  .icon { width: 132px; height: 132px; border-radius: 30px; }
+}
 </style>
 </head>
 <body>
-  <main class="card">
+
+  <header class="hero">
+    <img class="icon" src="alloy-icon.png" alt="Alloy app icon">
     <h1>Alloy</h1>
-    <p class="tag">On-device battery health &amp; energy monitoring for macOS.</p>
-    <div class="links">
-      <a class="btn" href="privacy.html">Privacy Policy</a>
-      <a class="btn" href="support.html">Support</a>
+    <p class="tag">Battery health and app energy, at a glance — right from your Mac's menu bar.</p>
+    <div class="badges">
+      <span class="badge">macOS 15+</span>
+      <span class="badge">100% on-device</span>
+      <span class="badge">Free</span>
+      <span class="badge">7 languages</span>
     </div>
-    <footer>© 2026 Tahsin Efe Yılmaz</footer>
+  </header>
+
+  <main class="wrap">
+    <section class="grid">
+      <div class="card">
+        <div class="ico">🔋</div>
+        <h3>Battery health</h3>
+        <p>Maximum capacity, cycle count, temperature and a simple health score — the numbers macOS hides.</p>
+      </div>
+      <div class="card">
+        <div class="ico">⚡️</div>
+        <h3>Energy tracking</h3>
+        <p>See which apps are working your battery hardest, ranked by their real energy impact.</p>
+      </div>
+      <div class="card">
+        <div class="ico">📊</div>
+        <h3>Weekly reports</h3>
+        <p>Trends over the week, month, or 3–6 months — average score, charge, and cycles compared side by side.</p>
+      </div>
+      <div class="card">
+        <div class="ico">🔔</div>
+        <h3>Smart alerts</h3>
+        <p>Optional local notifications for low battery, staying at 100%, or an overheating pack.</p>
+      </div>
+      <div class="card">
+        <div class="ico">🧭</div>
+        <h3>Menu-bar native</h3>
+        <p>Lives quietly in the menu bar, sips power in the background, and can launch at login.</p>
+      </div>
+      <div class="card">
+        <div class="ico">🌍</div>
+        <h3>Speaks your language</h3>
+        <p>English, Türkçe, Deutsch, Français, Español, 日本語, and 简体中文 — switch live.</p>
+      </div>
+    </section>
+
+    <section class="privacy">
+      <h2>Private by design</h2>
+      <p>Alloy collects no data and makes no network connections. Every reading stays on your Mac — there's no account, no analytics, and no tracking.</p>
+    </section>
   </main>
+
+  <footer>
+    <div class="links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="support.html">Support</a>
+    </div>
+    <p class="fine">© 2026 Tahsin Efe Yılmaz</p>
+  </footer>
+
 </body>
 </html>
