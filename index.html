@@ -8,7 +8,7 @@
 <meta name="description" content="Alloy is a lightweight macOS menu-bar app that tracks your battery health and app energy use — entirely on-device, no data collected.">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <style>
-:root { color-scheme: dark; }
+:root { color-scheme: light dark; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
@@ -120,6 +120,41 @@ footer .fine { font-size: 13px; }
   .hero { padding-top: 64px; }
   .hero h1 { font-size: 44px; }
   .icon { width: 132px; height: 132px; border-radius: 30px; }
+}
+
+/* Light mode: override dark surfaces + text; bright accents/fills stay. */
+@media (prefers-color-scheme: light) {
+  body { background: #f6f6fa; color: #1c1c22; }
+  .hero::before { background: radial-gradient(circle, rgba(120,140,255,.14), transparent 65%); }
+  .icon { box-shadow: 0 30px 80px rgba(30,30,60,.18); }
+  .hero .tag { color: #55556a; }
+  .badge { color: #4a4a58; background: #ececf2; border-color: #dcdce4; }
+
+  .card { background: #ffffff; border-color: #e6e6ee; }
+  .card .ico { background: #eef0f8; border-color: #dfe2f0; color: #4a5bd0; }
+  .card p { color: #55556a; }
+
+  .shots .sub { color: #55556a; }
+  .win { background: #ffffff; border-color: #e6e6ee; box-shadow: 0 24px 60px rgba(30,30,60,.16); }
+  .win .bar { background: #f0f0f5; border-bottom-color: #e6e6ee; }
+  .win .bar span { color: #8a8a98; }
+  .ring { background: conic-gradient(#5fd08a 0 82%, #e4e4ec 82% 100%); }
+  .ring::before { background: #ffffff; }
+  .ring b small { color: #6a6a78; }
+  .ring-meta .score { color: #55556a; }
+  .metric { background: #f4f4f8; border-color: #e6e6ee; }
+  .metric .k { color: #6a6a78; }
+  .eh { color: #6a6a78; }
+  .app .track { background: #e6e6ee; }
+  .lvl-vh { background: #ffe1e6; color: #d33a52; }
+  .lvl-h  { background: #fff0d6; color: #b57718; }
+  .lvl-m  { background: #dcf3e6; color: #2e8b57; }
+  .lvl-l  { background: #e6eaff; color: #4a5bd0; }
+
+  .privacy { background: #eaf6ef; border-color: #cfe6d9; }
+  .privacy p { color: #3a7d5a; }
+
+  footer { color: #6a6a78; }
 }
 </style>
 </head>
