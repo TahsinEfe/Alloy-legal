@@ -140,42 +140,37 @@ footer .fine { font-size: 13px; }
 :root[data-theme="dark"] { color-scheme: dark; }
 
 /* Light mode: override dark surfaces + text; bright accents/fills stay.
-   Driven by the resolved data-theme attribute (system or saved choice). */
-:root[data-theme="light"] {
-  color-scheme: light;
-  #theme-toggle { background: #ececf2; border-color: #dcdce4; }
-  body { background: #f6f6fa; color: #1c1c22; }
-  .hero::before { background: radial-gradient(circle, rgba(120,140,255,.14), transparent 65%); }
-  .icon { box-shadow: 0 30px 80px rgba(30,30,60,.18); }
-  .hero .tag { color: #55556a; }
-  .badge { color: #4a4a58; background: #ececf2; border-color: #dcdce4; }
-
-  .card { background: #ffffff; border-color: #e6e6ee; }
-  .card .ico { background: #eef0f8; border-color: #dfe2f0; color: #4a5bd0; }
-  .card p { color: #55556a; }
-
-  .shots .sub { color: #55556a; }
-  .win { background: #ffffff; border-color: #e6e6ee; box-shadow: 0 24px 60px rgba(30,30,60,.16); }
-  .win .bar { background: #f0f0f5; border-bottom-color: #e6e6ee; }
-  .win .bar span { color: #8a8a98; }
-  .ring { background: conic-gradient(#5fd08a 0 82%, #e4e4ec 82% 100%); }
-  .ring::before { background: #ffffff; }
-  .ring b small { color: #6a6a78; }
-  .ring-meta .score { color: #55556a; }
-  .metric { background: #f4f4f8; border-color: #e6e6ee; }
-  .metric .k { color: #6a6a78; }
-  .eh { color: #6a6a78; }
-  .app .track { background: #e6e6ee; }
-  .lvl-vh { background: #ffe1e6; color: #d33a52; }
-  .lvl-h  { background: #fff0d6; color: #b57718; }
-  .lvl-m  { background: #dcf3e6; color: #2e8b57; }
-  .lvl-l  { background: #e6eaff; color: #4a5bd0; }
-
-  .privacy { background: #eaf6ef; border-color: #cfe6d9; }
-  .privacy p { color: #3a7d5a; }
-
-  footer { color: #6a6a78; }
-}
+   Driven by the resolved data-theme attribute (system or saved choice).
+   Flat selectors (no CSS nesting) so it works on every browser. */
+:root[data-theme="light"] { color-scheme: light; }
+:root[data-theme="light"] #theme-toggle { background: #ececf2; border-color: #dcdce4; }
+:root[data-theme="light"] body { background: #f6f6fa; color: #1c1c22; }
+:root[data-theme="light"] .hero::before { background: radial-gradient(circle, rgba(120,140,255,.14), transparent 65%); }
+:root[data-theme="light"] .icon { box-shadow: 0 30px 80px rgba(30,30,60,.18); }
+:root[data-theme="light"] .hero .tag { color: #55556a; }
+:root[data-theme="light"] .badge { color: #4a4a58; background: #ececf2; border-color: #dcdce4; }
+:root[data-theme="light"] .card { background: #ffffff; border-color: #e6e6ee; }
+:root[data-theme="light"] .card .ico { background: #eef0f8; border-color: #dfe2f0; color: #4a5bd0; }
+:root[data-theme="light"] .card p { color: #55556a; }
+:root[data-theme="light"] .shots .sub { color: #55556a; }
+:root[data-theme="light"] .win { background: #ffffff; border-color: #e6e6ee; box-shadow: 0 24px 60px rgba(30,30,60,.16); }
+:root[data-theme="light"] .win .bar { background: #f0f0f5; border-bottom-color: #e6e6ee; }
+:root[data-theme="light"] .win .bar span { color: #8a8a98; }
+:root[data-theme="light"] .ring { background: conic-gradient(#5fd08a 0 82%, #e4e4ec 82% 100%); }
+:root[data-theme="light"] .ring::before { background: #ffffff; }
+:root[data-theme="light"] .ring b small { color: #6a6a78; }
+:root[data-theme="light"] .ring-meta .score { color: #55556a; }
+:root[data-theme="light"] .metric { background: #f4f4f8; border-color: #e6e6ee; }
+:root[data-theme="light"] .metric .k { color: #6a6a78; }
+:root[data-theme="light"] .eh { color: #6a6a78; }
+:root[data-theme="light"] .app .track { background: #e6e6ee; }
+:root[data-theme="light"] .lvl-vh { background: #ffe1e6; color: #d33a52; }
+:root[data-theme="light"] .lvl-h  { background: #fff0d6; color: #b57718; }
+:root[data-theme="light"] .lvl-m  { background: #dcf3e6; color: #2e8b57; }
+:root[data-theme="light"] .lvl-l  { background: #e6eaff; color: #4a5bd0; }
+:root[data-theme="light"] .privacy { background: #eaf6ef; border-color: #cfe6d9; }
+:root[data-theme="light"] .privacy p { color: #3a7d5a; }
+:root[data-theme="light"] footer { color: #6a6a78; }
 </style>
 </head>
 <body>
